@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+Route::get('/history', function () {
+    return view('history');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/buy', function () {
+    return view('buy');
 });
