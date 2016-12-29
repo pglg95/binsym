@@ -14,16 +14,16 @@
     <meta name="author" content="Lukasz Cholewa">
 
     <!-- Bootstrap Css -->
-    <link href="bootstrap-assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('bootstrap-assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Style -->
-    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet">
-    <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-    <link href="plugins/Lightbox/dist/css/lightbox.css" rel="stylesheet">
-    <link href="plugins/Icons/et-line-font/style.css" rel="stylesheet">
-    <link href="plugins/animate.css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/owl-carousel/owl.transitions.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/Lightbox/dist/css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/Icons/et-line-font/style.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/animate.css/animate.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/main.css') }}" rel="stylesheet">
     <!-- Icons Font -->
     <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -44,7 +44,7 @@
 ============================================= -->
 <section class="main-header">
     <div id="owl-hero" class="owl-carousel owl-theme">
-        <div class="item" style="background-image: url(img/Slide.jpg)">
+        <div class="item" style="background-image: url({{ URL::asset('img/Slide.jpg') }})">
             <div class="caption">
                 <h6><span>Darmowy symulator opcji High/Low. Symuluj inwestycje wykorzystując wirtualną walutę.</span></h6>
                 <h1>Symulator inwestycji w opcje binarne</h1>
@@ -53,7 +53,7 @@
                 <a class="btn btn-transparent" href="#rank">Ranking graczy</a>
             </div>
         </div>
-        <div class="item" style="background-image: url(img/Slide2.jpg)">
+        <div class="item" style="background-image: url({{ URL::asset('img/Slide2.jpg') }})">
             <div class="caption">
                 <h6><span>Kursy walut dostępne w czasie rzeczywistym.</span></h6>
                 <h1>Rozpocznij zabawę już teraz</h1>
@@ -142,19 +142,19 @@
     </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.9.1.min.js"></script>
+<script src="{{ URL::asset('js/jquery-1.9.1.min.js') }}"></script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/customMain.js"></script>
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/customMain.js') }}"></script>
 <!-- JS PLUGINS -->
-<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="plugins/waypoints/jquery.waypoints.min.js"></script>
-<script src="plugins/countTo/jquery.countTo.js"></script>
-<script src="plugins/inview/jquery.inview.min.js"></script>
-<script src="plugins/Lightbox/dist/js/lightbox.min.js"></script>
-<script src="plugins/WOW/dist/wow.min.js"></script>
+<script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.easing.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/countTo/jquery.countTo.js') }}"></script>
+<script src="{{ URL::asset('plugins/inview/jquery.inview.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/Lightbox/dist/js/lightbox.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/WOW/dist/wow.min.js') }}"></script>
 </body>
 
 </html>

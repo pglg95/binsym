@@ -11,19 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    if(DB::connection()->getDatabaseName())
-    {
-        echo "connected successfully to database ".DB::connection()->getDatabaseName();
-    }
-    else return view('index');
-});
-Route::get('/history', function () {
-    return view('history');
-});
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-Route::get('/buy', function () {
-    return view('buy');
-});
+Route::get('/','IndexPageController@index');
+
+Route::get('/users/{id}/history', 'UserController@getAllBinaryOptions');
+
+Route::get('/currencies','CurrenciesController@getAll');
+
+Route::get('/currencies/{id}','CurrenciesController@get');
+
+

@@ -56,11 +56,11 @@
                                                 <td>
                                                     <label style="float:left; display:inline">
                                                         <input type="radio" name="fb" value="small" />
-                                                        <img src="img/up.png">
+                                                        <img src="{{ URL::asset('img/up.png') }}">
                                                     </label>
                                                     <label style="float:left; display:inline">
                                                         <input type="radio" name="fb" value="small" />
-                                                        <img src="img/down.png">
+                                                        <img src="{{ URL::asset('img/down.png') }}">
                                                     </label>
                                                 </td>
                                             </tr>
