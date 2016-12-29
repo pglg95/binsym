@@ -5,13 +5,13 @@
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <title>RISE-Multipurpose Html Template</title>
+    <title>Symulator inwestycji w opcje binarne</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Lukasz Cholewa">
 
     <!-- Bootstrap Css -->
     <link href="bootstrap-assets/css/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
         </div>
         <div class="item" style="background-image: url(img/Slide2.jpg)">
             <div class="caption">
-                <h6><span>Kursy walut dostępne w czasie rzeczywistym.<span></h6>
+                <h6><span>Kursy walut dostępne w czasie rzeczywistym.</span></h6>
                 <h1>Rozpocznij zabawę już teraz</h1>
                 <a class="btn btn-transparent" href="#login">Zaloguj się</a>
                 <a class="btn btn-light" href="#register">Jesteś tu nowy?</a>

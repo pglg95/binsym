@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    if(DB::connection()->getDatabaseName())
+    {
+        echo "connected successfully to database ".DB::connection()->getDatabaseName();
+    }
+    else return view('index');
 });
 Route::get('/history', function () {
     return view('history');
