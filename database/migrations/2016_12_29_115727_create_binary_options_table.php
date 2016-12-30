@@ -24,7 +24,13 @@ class CreateBinaryOptionsTable extends Migration
 
             $table->float('value');
 
+            $table->float('start_rate');
+
+            $table->float('finish_rate')->nullable();
+
             $table->dateTime('finish_date');
+
+            $table->integer('speculation');
 
             $table->timestamps();
         });

@@ -19,7 +19,10 @@ class CreateCurrenciesTable extends Migration
             $table->longText('description');
             $table->float('return_value_1');
             $table->float('return_value_2');
+            $table->float('current_rate')->nullable();
             $table->timestamps();
+
+            $table->unique('code');
         });
     }
 

@@ -2,10 +2,10 @@
 @section('content')
             <div class="row-fluid">
                 <div class="statbox orange span12" ontablet="span12" ondesktop="span12">
-                    <div class="number">EUR/USD</div>
-                    <div class="title">Obecny kurs: 4.85</div>
-                    <div style="float: left;">Stopa zwrotu mniej niż 2 dni: 80%</div><br>
-                    <div style="float: left;">Stopa zwrotu 2 dni lub więcej: 75%</div>
+                    <div class="number">{{$currency->code}}</div>
+                    <div class="title">Obecny kurs ({{$currency->updated_at}}): {{$currency->current_rate}}</div>
+                    <div style="float: left;">Stopa zwrotu mniej niż 2 dni: {{$currency->return_value_1}}%</div><br>
+                    <div style="float: left;">Stopa zwrotu 2 dni lub więcej: {{$currency->return_value_2}}%</div>
                 </div>
             </div>
 

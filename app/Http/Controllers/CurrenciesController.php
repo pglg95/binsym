@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Currency;
 use Illuminate\Http\Request;
 use PHPHtmlParser\Dom;
 
 class CurrenciesController extends Controller
 {
-    private function getCurrenciesCurrentRate(){
-        $dom = new Dom;
-        $dom->load('http://webrates.truefx.com/rates/connect.html?f=html');
-        $rows=$dom->find('tr');
-        $array=array();
-        foreach ($rows as $row){
-            $stringValue=($row->find('td')[2]->text.$row->find('td')[3]->text);
-            array_push($array,array($row->find('td')[0]->text,floatval($stringValue)));
-        }
-        return $array;
-    }
     private function getRandomColorForCurrencyDiv($currencyCount){
         $currency=array();
         for ($i=0;$i<$currencyCount;$i++){
@@ -39,13 +29,14 @@ class CurrenciesController extends Controller
         return $currency;
     }
 
-    public function getAll(){
-        $currencies=$this->getCurrenciesCurrentRate();
+    public function showAll(){
+        $currencies=Currency::all();
         $colors=$this->getRandomColorForCurrencyDiv(count($currencies));
         return view('dashboard', compact('currencies','colors'));
 
     }
-    public function get($id){
-        return view('buy');
+    public function showById($id){
+        $currency=Currency::findOrFail($id);
+        return view('buy',compact('currency'));
     }
 }

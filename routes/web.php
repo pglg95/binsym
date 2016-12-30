@@ -15,8 +15,10 @@ Route::get('/','IndexPageController@index');
 
 Route::get('/users/{id}/history', 'UserController@getAllBinaryOptions');
 
-Route::get('/currencies','CurrenciesController@getAll');
+Route::get('/currencies','CurrenciesController@showAll');
 
-Route::get('/currencies/{id}','CurrenciesController@get');
+Route::get('/currencies/{id}','CurrenciesController@showById');
+
+Route::get('/refresh','ScheduleActionController@refreshRates');
 
 
