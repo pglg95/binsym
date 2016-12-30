@@ -90,9 +90,16 @@
         <div id="sidebar-left" class="span1">
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
-                    <li class="active"><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet">Panel główny</span></a></li>
-
-                    <li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet">Zarządzaj operacjami</span></a></li>
+                    @section('dashboard_tab')
+                    <li class="active">
+                    @show
+                        <a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet">Panel główny</span></a>
+                    </li>
+                    @section('history_tab')
+                    <li>
+                    @show
+                        <a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet">Zarządzaj operacjami</span></a>
+                    </li>
 
                 </ul>
             </div>

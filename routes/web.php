@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','IndexPageController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/users/{id}/history', 'UserController@getAllBinaryOptions');
 
@@ -20,5 +20,7 @@ Route::get('/currencies','CurrenciesController@showAll');
 Route::get('/currencies/{id}','CurrenciesController@showById');
 
 Route::get('/refresh','ScheduleActionController@refreshRates');
+
+Auth::routes();
 
 

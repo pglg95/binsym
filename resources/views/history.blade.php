@@ -651,3 +651,9 @@
 
             </div>
 @endsection
+@section('history_tab')
+    <li class="active">
+@endsection
+@section('dashboard_tab')
+    <li>
+@endsection

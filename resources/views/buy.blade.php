@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
             <div class="row-fluid">
-                <div class="statbox orange span12" ontablet="span12" ondesktop="span12">
+                <div class="statbox {{$colors[0]}} span12" ontablet="span12" ondesktop="span12">
                     <div class="number">{{$currency->code}}</div>
                     <div class="title">Obecny kurs ({{$currency->updated_at}}): {{$currency->current_rate}}</div>
                     <div style="float: left;">Stopa zwrotu mniej niż 2 dni: {{$currency->return_value_1}}%</div><br>
@@ -32,14 +32,6 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <p style="color:black;">Przewidywany zysk:</p>
-                                                </td>
-                                                <td>
-                                                    <span class="sliderProfit" style="color:black;">0.8 PLN</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     <p style="color:black;">Dzień i godzina ukończenia:</p>
                                                 </td>
                                                 <td>
@@ -62,6 +54,14 @@
                                                         <input type="radio" name="fb" value="small" />
                                                         <img src="{{ URL::asset('img/down.png') }}">
                                                     </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p style="color:black;">Przewidywany zysk:</p>
+                                                </td>
+                                                <td>
+                                                    <span class="sliderProfit" style="color:black;">0.8 PLN</span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -104,5 +104,7 @@
                 </div><!--/span-->
             </div>
 @endsection
-
+@section('dashboard_tab')
+    <li>
+@endsection
 

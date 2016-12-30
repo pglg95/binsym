@@ -8,6 +8,10 @@ use PHPHtmlParser\Dom;
 
 class CurrenciesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     private function getRandomColorForCurrencyDiv($currencyCount){
         $currency=array();
         for ($i=0;$i<$currencyCount;$i++){
@@ -37,6 +41,7 @@ class CurrenciesController extends Controller
     }
     public function showById($id){
         $currency=Currency::findOrFail($id);
-        return view('buy',compact('currency'));
+        $colors=$this->getRandomColorForCurrencyDiv(1);
+        return view('buy',compact('currency','colors'));
     }
 }
