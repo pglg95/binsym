@@ -15,7 +15,18 @@
                         <h2><i class="halflings-icon white white tasks"></i><span class="break"></span>Zakup opcji binarnych</h2>
                     </div>
                     <div class="box-content">
-                        <table class="table table-striped">
+                        <form role="form" method="POST" action="{{ url('/boption/create') }}">
+                            {{ csrf_field() }}
+                            @if(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                          <table class="table table-striped">
                             <tbody>
                             <tr>
                                 <td>
@@ -27,7 +38,7 @@
                                                     <p style="color:black;">Zainwestowana kwota:</p>
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="sliderMinLabel" value="1" disabled >
+                                                    <input type="text" name="value" class="sliderMinLabel" value="1" >
                                                 </td>
                                             </tr>
                                             <tr>
@@ -36,7 +47,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="input-append date form_datetime">
-                                                        <input size="16" type="text" value="" readonly>
+                                                        <input size="16" type="text" value="" name="finish_date">
                                                         <span class="add-on"><i class="icon-th"></i></span>
                                                     </div>
                                                 </td>
@@ -47,11 +58,11 @@
                                                 </td>
                                                 <td>
                                                     <label style="float:left; display:inline">
-                                                        <input type="radio" name="fb" value="small" />
+                                                        <input type="radio" name="speculation" value="up" />
                                                         <img src="{{ URL::asset('img/up.png') }}">
                                                     </label>
                                                     <label style="float:left; display:inline">
-                                                        <input type="radio" name="fb" value="small" />
+                                                        <input type="radio" name="speculation" value="down" />
                                                         <img src="{{ URL::asset('img/down.png') }}">
                                                     </label>
                                                 </td>
@@ -65,12 +76,13 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <button class="btn btn-large btn-primary" style="float:right;">Zatwierdź</button>
+                                        <input type="submit" value="Zatwierdź" class="btn btn-large btn-primary" style="float:right;">
                                     </div>
                                 </td>
                             </tr>
 
                             </tbody></table>
+                        </form>
                     </div>
                 </div><!--/span-->
             </div><!--/row-->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -11,6 +12,8 @@ class UserController extends Controller
     }
 
     public function getAllBinaryOptions($userId){
-        return view('history');
+        if(Auth::user()->id != $userId)
+            return redirect("/currencies");
+        else return view('history');
     }
 }

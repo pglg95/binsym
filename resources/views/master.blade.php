@@ -47,7 +47,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="index.html"><span>SYMULATOR INWESTYCJI W OPCJE BINARNE</span></a>
+            <a class="brand" href="{{ url('/currencies') }}">
+                <span>SYMULATOR INWESTYCJI W OPCJE BINARNE</span>
+           </a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
@@ -62,14 +64,10 @@
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="halflings-icon white user"></i> Dennis Ji
+                            <i class="halflings-icon white user"></i> {{ Auth::user()->name }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-menu-title">
-                                <span>Account Settings</span>
-                            </li>
-                            <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
@@ -103,12 +101,12 @@
                     @section('dashboard_tab')
                     <li class="active">
                     @show
-                        <a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet">Panel główny</span></a>
+                        <a href="{{ url('/currencies') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Panel główny</span></a>
                     </li>
                     @section('history_tab')
                     <li>
                     @show
-                        <a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet">Zarządzaj operacjami</span></a>
+                        <a href="{{ url('/users/'.Auth::user()->id.'/history') }}"><i class="icon-tasks"></i><span class="hidden-tablet">Zarządzaj operacjami</span></a>
                     </li>
 
                 </ul>
@@ -233,9 +231,10 @@
         range: "min",
         value: 1,
         min: 1,
-        max: 500,
+        max: {{Auth::user()->money}},
         slide: function( event, ui ) {
-            $( ".sliderProfit" ).html(ui.value*0.8 + " PLN");
+            $('.form_datetime')
+            $( ".sliderProfit" ).html(ui.value*0.8);
             $(".sliderMinLabel").val(ui.value);
         }
     });
@@ -247,7 +246,7 @@
     }
     if($(".form_datetime").length){
         $(".form_datetime").datetimepicker({
-            format: "dd mm yyyy -hh",
+            format: "d-m-yyyy H",
             maxView: 3,
             minView: 1,
             language: 'pl',

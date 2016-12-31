@@ -21,6 +21,8 @@ Route::get('/currencies/{id}','CurrenciesController@showById');
 
 Route::get('/refresh','ScheduleActionController@refreshRates');
 
+Route::post('/boption/create','BinaryOptionController@createBinaryOption');
+
 Auth::routes();
 
 
