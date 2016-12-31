@@ -7,6 +7,10 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController extends Controller
 {
     /*
@@ -71,6 +75,21 @@ class RegisterController extends Controller
 
     public function showRegistrationForm(){
         return redirect('/#register');
+    }
+
+    public function register(Request $request){
+        if($this->validator($request->all())->fails()){
+            return redirect('/#register')
+                ->withInput($request->all())
+                ->withErrors($this->validator($request->all()));
+        }
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 
 }

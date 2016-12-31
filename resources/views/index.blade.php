@@ -71,14 +71,25 @@
         <h2>Zaloguj się</h2>
         <hr class="sep">
         <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="loginn" placeholder="Login">
+            <form role="form" method="POST" action="{{ url('/login') }}">
+                {{ csrf_field()}}
+                <div class="form-group{{ $errors->has('email') && $errors->has('loginReq') ? ' has-error' : '' }}">
+                    <input type="text" class="form-control" name="email" placeholder="Email" value="{{ $errors->has('loginReq') ? old('email') : '' }}" required autofocus>
+                    @if ($errors->has('email') && $errors->has('loginReq') )
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="Hasło">
+                <div class="form-group{{ $errors->has('password') && $errors->has('loginReq') ? ' has-error' : '' }} ">
+                    <input type="password" class="form-control" name="password" placeholder="Hasło">
+                    @if ($errors->has('password') && $errors->has('loginReq'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
-                <a href="#" class="btn-block">Zaloguj się</a>
+                <input type="submit" class="btn-block" value="Zaloguj się">
             </form>
         </div>
     </div>
@@ -89,20 +100,36 @@
         <hr class="sep">
         <p>Na start otrzymasz 100 wirtualnych monet</p>
         <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="loginn" placeholder="Login">
+            <form role="form" method="POST" action="{{ url('/register') }}">
+                {{ csrf_field() }}
+                <div class="form-group {{ $errors->has('name') && !$errors->has('loginReq') ? ' has-error' : '' }}" >
+                    <input type="text" class="form-control" name="name" placeholder="Nazwa użytkownika" value="{{ !$errors->has('loginReq') ? old('name') : '' }}" required autofocus>
+                    @if ($errors->has('name') && !$errors->has('loginReq'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group {{ $errors->has('email') && !$errors->has('loginReq') ? ' has-error' : '' }} ">
+                    <input type="text" class="form-control" name="email" placeholder="Email" value="{{ !$errors->has('loginReq') ? old('email') : '' }}" required autofocus>
+                    @if ($errors->has('email') && !$errors->has('loginReq'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group {{ $errors->has('password') && !$errors->has('loginReq') ? ' has-error' : '' }}">
+                    <input type="password" class="form-control" name="password" placeholder="Hasło" required>
+                    @if ($errors->has('password') && !$errors->has('loginReq'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="Email" placeholder="Email">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Powtórz hasło" required>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="Hasło">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" id="passwordAgain" placeholder="Powtórz hasło">
-                </div>
-                <a href="#" class="btn-block">Zarejestruj się</a>
+                <input type="submit" class="btn-block" value="Zarejestruj się">
             </form>
         </div>
     </div>
