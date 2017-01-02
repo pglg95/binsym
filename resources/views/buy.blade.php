@@ -18,7 +18,7 @@
                         <form role="form" method="POST" action="{{ url('/boption/create') }}">
                             {{ csrf_field() }}
                             @if(count($errors) > 0)
-                                <div class="alert alert-danger">
+                                <div class="alert-danger box-content">
                                     <ul>
                                         @foreach ($errors->all() as $error)
                                             <li>{{ $error }}</li>
@@ -38,7 +38,7 @@
                                                     <p style="color:black;">Zainwestowana kwota:</p>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="value" class="sliderMinLabel" value="1" >
+                                                    <input type="text" name="value" class="sliderMinLabel" value="1" readonly >
                                                 </td>
                                             </tr>
                                             <tr>
@@ -47,7 +47,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="input-append date form_datetime">
-                                                        <input size="16" type="text" value="" name="finish_date">
+                                                        <input size="16" type="text" value="" name="finish_date" readonly>
                                                         <span class="add-on"><i class="icon-th"></i></span>
                                                     </div>
                                                 </td>
