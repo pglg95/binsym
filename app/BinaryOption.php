@@ -9,7 +9,8 @@ class BinaryOption extends Model
     protected $fillable = [
         'value',
         'finish_date',
-        'speculation'
+        'speculation',
+        'currency_id'
     ];
 
     public function currency(){

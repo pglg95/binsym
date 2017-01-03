@@ -224,6 +224,7 @@
 
 <script type="text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.js')}}" charset="UTF-8"></script>
 <script type="text/javascript" src="{{URL::asset('js/locales/bootstrap-datetimepicker.pl.js')}}" charset="UTF-8"></script>
+<script type="text/javascript" src="{{URL::asset('js/moment.js')}}" charset="UTF-8"></script>
 <script>
     $(".sliderSimple").slider();
 
@@ -233,7 +234,6 @@
         min: 1,
         max: {{Auth::user()->money}},
         slide: function( event, ui ) {
-            $('.form_datetime')
             $( ".sliderProfit" ).html(ui.value*0.8);
             $(".sliderMinLabel").val(ui.value);
         }

@@ -17,6 +17,7 @@
                     <div class="box-content">
                         <form role="form" method="POST" action="{{ url('/boption/create') }}">
                             {{ csrf_field() }}
+                            <input type="hidden" name="currency_id" value="{{$currency->id}}">
                             @if(count($errors) > 0)
                                 <div class="alert-danger box-content">
                                     <ul>
@@ -47,7 +48,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="input-append date form_datetime">
-                                                        <input size="16" type="text" value="" name="finish_date" readonly>
+                                                        <input size="16" type="text" value="" name="finish_date" id="date-time" readonly>
                                                         <span class="add-on"><i class="icon-th"></i></span>
                                                     </div>
                                                 </td>
@@ -97,19 +98,15 @@
                         <ul class="nav tab-menu nav-tabs" id="myTab">
 
 
-                            <li class="active"><a href="#messages">EUR/USD</a></li>
+                            <li class="active"><a href="#messages">{{$currency->code}}</a></li>
                         </ul>
 
                         <div id="myTabContent" class="tab-content">
 
 
                             <div class="tab-pane active" id="messages">
-                                <p>
-                                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                                </p>
-                                <p>
-                                    Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
-                                </p>
+                                <p>{{$currency->description}}</p>
+
                             </div>
                         </div>
                     </div>
