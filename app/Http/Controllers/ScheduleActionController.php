@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
+use Auth;
 use Illuminate\Http\Request;
 use PHPHtmlParser\Dom;
 

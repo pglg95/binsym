@@ -31,7 +31,11 @@ class BinaryOptionController extends Controller
 
         $binaryOption->user_id=Auth::user()->id;
 
+        $binaryOption->revenue=-$binaryOption->value;
+
         $binaryOption->speculation=($request->speculation=="up" ? 1 : 0);
+
+        Auth::user()->money=(Auth::user()->money)-$binaryOption->value;
 
         $binaryOption->save();
 
