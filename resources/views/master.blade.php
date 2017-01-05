@@ -102,12 +102,12 @@
                     @section('dashboard_tab')
                     <li class="active">
                     @show
-                        <a href="{{ url('/currencies') }}"><i class="icon-bar-chart"></i><span class="hidden-tablet">Panel główny</span></a>
+                        <a href="{{ url('/currencies') }}"><i class="fa fa-briefcase"></i><span class="hidden-tablet"> Panel główny</span></a>
                     </li>
                     @section('history_tab')
                     <li>
                     @show
-                        <a href="{{ url('/users/'.Auth::user()->id.'/history') }}"><i class="icon-tasks"></i><span class="hidden-tablet">Zarządzaj operacjami</span></a>
+                        <a href="{{ url('/users/'.Auth::user()->id.'/history') }}"><i class="fa fa-info"></i><span class="hidden-tablet"> Twoje operacje</span></a>
                     </li>
 
                 </ul>
@@ -124,7 +124,15 @@
 
         <!-- start: Content -->
         <div id="content" class="span11" style="min-height: 1040px;">
+            <ul class="breadcrumb">
+                    <li>
+                        <i class="fa fa-usd fa-lg" style="margin-right: 20px" aria-hidden="true">{{Auth::user()->money}}</i>
+                    </li>
+                    <li>
+                        <i class="fa fa-list-ol fa-lg" aria-hidden="true">{{\App\Http\Controllers\UserController::getRankPosition(Auth::user()->money)}}</i>
+                    </li>
 
+            </ul>
             @yield('content')
 
         </div>

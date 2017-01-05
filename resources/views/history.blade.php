@@ -32,9 +32,9 @@
                                         <td class="center">{{$boption->finish_rate}}</td>
                                         <td class="center">
                                             @if($boption->speculation == 0)
-                                                <i class="fa icon-upload fa-5x" aria-hidden="true"></i>
+                                                <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
                                             @else
-                                                <i class="fa icon-upload fa-5x" aria-hidden="true"></i>
+                                                <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
                                             @endif
                                         </td>
                                         <td class="center">

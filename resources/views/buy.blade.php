@@ -10,6 +10,7 @@
             </div>
 
             <div class="row-fluid">
+                @if(Auth::user()->money > 0)
                 <div class="box yellow span12">
                     <div class="box-header">
                         <h2><i class="halflings-icon white white tasks"></i><span class="break"></span>Zakup opcji binarnych</h2>
@@ -86,6 +87,7 @@
                         </form>
                     </div>
                 </div><!--/span-->
+                @endif
             </div><!--/row-->
 
             <div class="row-fluid">

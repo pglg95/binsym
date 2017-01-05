@@ -38,6 +38,7 @@ class BinaryOptionController extends Controller
         Auth::user()->money=(Auth::user()->money)-$binaryOption->value;
 
         $binaryOption->save();
+        Auth::user()->save();
 
         return redirect("/currencies");
     }

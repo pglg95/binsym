@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\BinaryOption;
 use App\Currency;
+use App\User;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +27,14 @@ class UserController extends Controller
             }
             return view('history',compact('binaryOptions','binaryOptionsRatingCodes'));
         }
+    }
+
+    public static function getRankPosition($userId){
+       echo DB::statement(DB::raw('set @rownum=0'))->toSql();
+        $users = User::select([
+            DB::raw('(@rownum  := @rownum  + 1) AS rownum')]);
+        $datatables = Datatables::of($users);
+        return $datatables->make(true);
     }
 
 }
