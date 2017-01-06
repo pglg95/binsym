@@ -19,11 +19,12 @@ Route::get('/currencies','CurrenciesController@showAll');
 
 Route::get('/currencies/{id}','CurrenciesController@showById');
 
-Route::get('/refresh','ScheduleActionController@refreshRates');
+Route::get('/balmer','ScheduleActionController@hourlyAction');
 
 Route::get('/install','AdminController@installCurrencies');
 
 Route::post('/boption/create','BinaryOptionController@createBinaryOption');
+
 
 Auth::routes();
 
