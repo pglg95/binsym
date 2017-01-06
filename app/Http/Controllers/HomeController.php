@@ -28,7 +28,7 @@ class HomeController extends Controller
         if(count($minRankMoneyValue)>0){
             $firstQueryResult= $minRankMoneyValue[$minRankMoneyValue->count()-1]['money'];
 
-            $rankUsers=User::select('name','money')->where('money','>=',$firstQueryResult)->get();
+            $rankUsers=User::select('name','money')->where('money','>=',$firstQueryResult)->orderBy('money','desc')->get();
         }
         else $rankUsers=array();
 
