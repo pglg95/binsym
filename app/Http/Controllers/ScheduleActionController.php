@@ -60,11 +60,11 @@ class ScheduleActionController extends Controller
 
                 $user=User::findOrFail($activeOption->user_id);
                 $user->money+=$newUserMoney;
-
-                $activeOption->save();
                 $user->save();
 
             }
+            $activeOption->save();
+
         }
     }
 
