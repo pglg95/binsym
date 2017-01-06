@@ -35,11 +35,15 @@ class BinaryOptionController extends Controller
 
         $binaryOption->speculation=($request->speculation=="up" ? 1 : 0);
 
+        $binaryOption->state=1;
+
         Auth::user()->money=(Auth::user()->money)-$binaryOption->value;
 
         $binaryOption->save();
         Auth::user()->save();
 
-        return redirect("/currencies");
+        $currentUserId=Auth::user()->id;
+
+        return redirect("/users/$currentUserId/history");
     }
 }

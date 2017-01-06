@@ -45,7 +45,7 @@
                                             @endif
                                         </td>
                                         <td class="center">
-                                            @if($boption->state == 0)
+                                            @if($boption->state == 1)
                                                 <span class="label label-success">AKTYWNA</span>
                                             @else
                                                 <span class="label">ZAKOŃCZONA</span>

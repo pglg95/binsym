@@ -34,6 +34,8 @@ class CreateBinaryOptionsTable extends Migration
 
             $table->float('revenue')->nullable();
 
+            $table->integer('state');
+
             $table->timestamps();
         });
     }

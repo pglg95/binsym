@@ -15,18 +15,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rankUsers=$this->getRank();
-        if(!Auth::check())
+        if(!Auth::check()){
+            $rankUsers=$this->getRank();
             return view('index')->with('rankUsers',$rankUsers);
+        }
         else
             return redirect("/currencies");
     }
 
     private function getRank(){
         $minRankMoneyValue=User::select('money')->orderBy('money','desc')->limit('10')->get();
-        $firstQueryResult= $minRankMoneyValue[$minRankMoneyValue->count()-1]['money'];
+        if(count($minRankMoneyValue)>0){
+            $firstQueryResult= $minRankMoneyValue[$minRankMoneyValue->count()-1]['money'];
 
-        $rankUsers=User::select('name','money')->where('money','>=',$firstQueryResult)->get();
+            $rankUsers=User::select('name','money')->where('money','>=',$firstQueryResult)->get();
+        }
+        else $rankUsers=array();
+
 
         return $rankUsers;
     }

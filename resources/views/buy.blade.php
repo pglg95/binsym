@@ -69,14 +69,14 @@
                                                     </label>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <!--<tr>
                                                 <td>
                                                     <p style="color:black;">Przewidywany zysk:</p>
                                                 </td>
                                                 <td>
                                                     <span class="sliderProfit" style="color:black;">0.8 PLN</span>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </table>
                                         <input type="submit" value="Zatwierdź" class="btn btn-large btn-primary" style="float:right;">
                                     </div>
