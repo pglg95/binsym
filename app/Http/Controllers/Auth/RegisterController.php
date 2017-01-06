@@ -51,11 +51,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = array( 'password.*' => 'Hasło musi mieć przynajmniej sześć znaków i zgadzać się z potwierdzeniem.' );
         return Validator::make($data, [
             'name' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-        ]);
+        ],$messages);
     }
 
     /**

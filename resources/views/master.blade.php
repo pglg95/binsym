@@ -40,6 +40,7 @@
 
 <body>
 <!-- start: Header -->
+<div class="preloader"><i class="fa fa-circle-o-notch fa-spin fa-2x"></i></div>
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -246,6 +247,12 @@
             $( ".sliderProfit" ).html(ui.value*0.8);
             $(".sliderMinLabel").val(ui.value);
         }
+    });
+</script>
+<script>
+    var preloader = $('.preloader');
+    $(window).load(function () {
+        preloader.remove();
     });
 </script>
 <script type="text/javascript">

@@ -3005,3 +3005,26 @@ ul.messagesList li span.date {
 .navbar .brand{
 	font-size: 35px;
 }
+
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999999;
+	background: #24242a;
+}
+.preloader i {
+	color: #fff;
+	position: absolute;
+	font-size: 36px;
+	line-height: 36px;
+	top: 50%;
+	left: 50%;
+	height: 36px;
+	width: 36px;
+	margin-top: -15px;
+	margin-left: -15px;
+	display: inline-block;
+}
