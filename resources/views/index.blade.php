@@ -141,21 +141,15 @@
         <p>Najlepszych 10 graczy</p>
         <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
             <table style="width:100%; margin-top:20px;">
-                <tr class="border_bottom">
-                    <td>1</td>
-                    <td>Łukasz</td>
-                    <td>200</td>
-                </tr>
-                <tr class="border_bottom">
-                    <td>2</td>
-                    <td>Papaj</td>
-                    <td>180</td>
-                </tr>
-                <tr class="border_bottom">
-                    <td>3</td>
-                    <td>Białkov</td>
-                    <td>100</td>
-                </tr>
+                @foreach($rankUsers as $rankUser)
+                    <tr class="border_bottom">
+                        <td>{{$loop->index+1}}</td>
+                        <td>{{$rankUser->name}}</td>
+                        <td>
+                            <i class="fa fa-usd fa-lg" style="margin-right: 20px" aria-hidden="true"> {{$rankUser->money}}</i>
+                        </td>
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>

@@ -29,12 +29,5 @@ class UserController extends Controller
         }
     }
 
-    public static function getRankPosition($userId){
-       echo DB::statement(DB::raw('set @rownum=0'))->toSql();
-        $users = User::select([
-            DB::raw('(@rownum  := @rownum  + 1) AS rownum')]);
-        $datatables = Datatables::of($users);
-        return $datatables->make(true);
-    }
 
 }

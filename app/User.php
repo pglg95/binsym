@@ -30,4 +30,10 @@ class User extends Authenticatable
     public function binaryOptions(){
         $this->hasMany('App\BinaryOption');
     }
+
+    public function getRankPosition(){
+        $allUsers=User::distinct()->select('money')->get()->count();
+        $worstUsers=User::select('id')->where('money','<',$this->money)->count();
+        return $allUsers-$worstUsers;
+    }
 }

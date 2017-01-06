@@ -126,10 +126,10 @@
         <div id="content" class="span11" style="min-height: 1040px;">
             <ul class="breadcrumb">
                     <li>
-                        <i class="fa fa-usd fa-lg" style="margin-right: 20px" aria-hidden="true">{{Auth::user()->money}}</i>
+                        <i class="fa fa-usd fa-lg" style="margin-right: 20px" aria-hidden="true"> {{Auth::user()->money}}</i>
                     </li>
                     <li>
-                        <i class="fa fa-list-ol fa-lg" aria-hidden="true">{{\App\Http\Controllers\UserController::getRankPosition(Auth::user()->money)}}</i>
+                        <i class="fa fa-list-ol fa-lg" aria-hidden="true"> {{Auth::user()->getRankPosition()}}</i>
                     </li>
 
             </ul>
