@@ -30,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
 
             return false;
         });
+
+        Validator::extend('user_old_pass_validator',function($attribute, $value, $formats){
+            return \Hash::check($value,\Auth::user()->getAuthPassword());
+        });
     }
 
     /**

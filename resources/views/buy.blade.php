@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
             <div class="row-fluid">
-                <div class="statbox {{$colors[0]}} span12" ontablet="span12" ondesktop="span12">X
+                <div class="statbox {{$colors[0]}} span12" ontablet="span12" ondesktop="span12">
                     <div class="number">{{$currency->code}}</div>
                     <div class="title">Obecny kurs: ({{$currency->updated_at->format('d-m-y')}} notowanie numer: {{$currency->updated_at->format('H')}}): {{$currency->current_rate}}</div>
                     <div style="float: left;">Stopa zwrotu mniej niż 2 dni: {{$currency->return_value_1}}%</div><br>
@@ -10,7 +10,7 @@
             </div>
 
             <div class="row-fluid">
-                @if(Auth::user()->money > 0)
+                @if(Auth::user()->money >= 1)
                 <div class="box yellow span12">
                     <div class="box-header">
                         <h2><i class="halflings-icon white white tasks"></i><span class="break"></span>Zakup opcji binarnych</h2>
