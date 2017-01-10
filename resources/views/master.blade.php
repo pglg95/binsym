@@ -266,7 +266,7 @@
             maxView: 3,
             minView: 1,
             language: 'pl',
-            todayBtn: true,
+            todayBtn: false,
             startDate: (new Date()).addHours(1),
             autoclose: true
         });
