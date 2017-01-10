@@ -118,4 +118,43 @@
 @section('dashboard_tab')
     <li>
 @endsection
+@section('js')
+            <script type="text/javascript">
+                Date.prototype.addHours = function(h) {
+                    this.setTime(this.getTime() + (h*60*60*1000));
+                    return this;
+                }
+                function getStartDate(){
+                    var date=new Date();
+                    date.setHours({{$currency->updated_at->format('H')+1}})
+                    return date;
+                }
 
+                if($(".form_datetime").length){
+                    $(".form_datetime").datetimepicker({
+                        format: "d-m-yyyy H",
+                        maxView: 3,
+                        minView: 1,
+                        language: 'pl',
+                        todayBtn: false,
+                        startDate: getStartDate(),
+                        autoclose: true
+                    });
+                }
+
+            </script>
+            <script>
+                $(".sliderSimple").slider();
+
+                $(".sliderMin").slider({
+                    range: "min",
+                    value: 1,
+                    min: 1,
+                    max: {{Auth::user()->money}},
+                    slide: function( event, ui ) {
+                        $( ".sliderProfit" ).html(ui.value*0.8);
+                        $(".sliderMinLabel").val(ui.value);
+                    }
+                });
+            </script>
+@endsection

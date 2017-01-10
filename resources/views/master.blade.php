@@ -239,43 +239,14 @@
 <script type="text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.js')}}" charset="UTF-8"></script>
 <script type="text/javascript" src="{{URL::asset('js/locales/bootstrap-datetimepicker.pl.js')}}" charset="UTF-8"></script>
 <script type="text/javascript" src="{{URL::asset('js/moment.js')}}" charset="UTF-8"></script>
-<script>
-    $(".sliderSimple").slider();
 
-    $(".sliderMin").slider({
-        range: "min",
-        value: 1,
-        min: 1,
-        max: {{Auth::user()->money}},
-        slide: function( event, ui ) {
-            $( ".sliderProfit" ).html(ui.value*0.8);
-            $(".sliderMinLabel").val(ui.value);
-        }
-    });
-</script>
 <script>
     var preloader = $('.preloader');
     $(window).load(function () {
         preloader.remove();
     });
 </script>
-<script type="text/javascript">
-    Date.prototype.addHours = function(h) {
-        this.setTime(this.getTime() + (h*60*60*1000));
-        return this;
-    }
-    if($(".form_datetime").length){
-        $(".form_datetime").datetimepicker({
-            format: "d-m-yyyy H",
-            maxView: 3,
-            minView: 1,
-            language: 'pl',
-            todayBtn: false,
-            startDate: (new Date()),
-            autoclose: true
-        });
-    }
-
-</script>
+@section('js')
+@show
 
 </body></html>
