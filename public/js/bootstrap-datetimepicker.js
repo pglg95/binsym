@@ -817,7 +817,7 @@
             html.push('</fieldset>');
           }
         } else {
-          txt = i + 1;
+          txt = i;
           html.push('<span class="' + classes.join(' ') + '">' + txt + '</span>');
         }
       }

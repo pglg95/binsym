@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
             <div class="row-fluid">
-                <div class="statbox {{$colors[0]}} span12" ontablet="span12" ondesktop="span12">
+                <div class="statbox {{$colors[0]}} span12" ontablet="span12" ondesktop="span12">X
                     <div class="number">{{$currency->code}}</div>
-                    <div class="title">Obecny kurs ({{$currency->updated_at}}): {{$currency->current_rate}}</div>
+                    <div class="title">Obecny kurs: ({{$currency->updated_at->format('d-m-y')}} notowanie numer: {{$currency->updated_at->format('H')}}): {{$currency->current_rate}}</div>
                     <div style="float: left;">Stopa zwrotu mniej niż 2 dni: {{$currency->return_value_1}}%</div><br>
                     <div style="float: left;">Stopa zwrotu 2 dni lub więcej: {{$currency->return_value_2}}%</div>
                 </div>
@@ -45,7 +45,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <p style="color:black;">Dzień i godzina ukończenia:</p>
+                                                    <p style="color:black;">Dzień i numer notowania:</p>
                                                 </td>
                                                 <td>
                                                     <div class="input-append date form_datetime">

@@ -27,7 +27,7 @@
                                         <td class="center">{{$binaryOptionsRatingCodes[$loop->index]}}</td>
                                         <td class="center">{{$boption->value}}</td>
                                         <td class="center">{{$boption->created_at}}</td>
-                                        <td class="center">{{$boption->finish_date}}</td>
+                                        <td class="center">{{explode(" ",$boption->finish_date)[0]}} Notowanie:{{explode(":",explode(" ",$boption->finish_date)[1])[0]}}</td>
                                         <td class="center">{{$boption->start_rate}}</td>
                                         <td class="center">{{$boption->finish_rate}}</td>
                                         <td class="center">
