@@ -14,16 +14,16 @@
     <meta name="author" content="Lukasz Cholewa">
 
     <!-- Bootstrap Css -->
-    <link href="{{ URL::secureAsset('bootstrap-assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('bootstrap-assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Style -->
-    <link href="{{ URL::secureAsset('plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
-    <link href="{{ URL::secureAsset('plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
-    <link href="{{ URL::secureAsset('plugins/owl-carousel/owl.transitions.css') }}" rel="stylesheet">
-    <link href="{{ URL::secureAsset('plugins/Lightbox/dist/css/lightbox.css') }}" rel="stylesheet">
-    <link href="{{ URL::secureAsset('plugins/Icons/et-line-font/style.css') }}" rel="stylesheet">
-    <link href="{{ URL::secureAsset('plugins/animate.css/animate.css') }}" rel="stylesheet">
-    <link href="{{ URL::secureAsset('css/main.css',true) }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/owl-carousel/owl.transitions.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/Lightbox/dist/css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/Icons/et-line-font/style.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('plugins/animate.css/animate.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/main.css') }}" rel="stylesheet">
     <!-- Icons Font -->
     <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -44,7 +44,8 @@
 ============================================= -->
 <section class="main-header">
     <div id="owl-hero" class="owl-carousel owl-theme">
-        <div class="item" style="background-image: url({{ URL::secureAsset('img/Slide.jpg') }})">
+        <div class="item" style="background-image: url({{ URL::asset('img/Slide.jpg') }})">
+            <div style="background-color: rgba(39,62,84,0.70);width: 100%;height: 100%">
             <div class="caption">
                 <h6><span>Darmowy symulator opcji High/Low. Symuluj inwestycje wykorzystując wirtualną walutę.</span></h6>
                 <h1>Symulator inwestycji w opcje binarne</h1>
@@ -52,14 +53,17 @@
                 <a class="btn btn-light" href="#register">Jesteś tu nowy?</a>
                 <a class="btn btn-transparent" href="#rank">Ranking graczy</a>
             </div>
+            </div>
         </div>
-        <div class="item" style="background-image: url({{ URL::secureAsset('img/Slide2.jpg') }})">
+        <div class="item" style="background-image: url({{ URL::asset('img/Slide2.jpg') }})">
+            <div style="background-color: rgba(39,62,84,0.70);width: 100%;height: 100%">
             <div class="caption">
                 <h6><span>Kursy walut dostępne w czasie rzeczywistym.</span></h6>
                 <h1>Rozpocznij zabawę już teraz</h1>
                 <a class="btn btn-transparent" href="#login">Zaloguj się</a>
                 <a class="btn btn-light" href="#register">Jesteś tu nowy?</a>
                 <a class="btn btn-transparent" href="#rank">Ranking graczy</a>
+            </div>
             </div>
         </div>
     </div>
@@ -91,6 +95,7 @@
                 </div>
                 <input type="submit" class="btn-block" value="Zaloguj się">
             </form>
+            @include('auth.passwords.email')
         </div>
     </div>
 </section>
@@ -163,19 +168,27 @@
     </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{{ URL::secureAsset('js/jquery-1.9.1.min.js') }}"></script>
+<script src="{{ URL::asset('js/jquery-1.9.1.min.js') }}"></script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{ URL::secureAsset('js/bootstrap.min.js') }}"></script>
-<script src="{{ URL::secureAsset('js/customMain.js') }}"></script>
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/customMain.js') }}"></script>
 <!-- JS PLUGINS -->
-<script src="{{ URL::secureAsset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
-<script src="{{ URL::secureAsset('js/jquery.easing.min.js') }}"></script>
-<script src="{{ URL::secureAsset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
-<script src="{{ URL::secureAsset('plugins/countTo/jquery.countTo.js') }}"></script>
-<script src="{{ URL::secureAsset('plugins/inview/jquery.inview.min.js') }}"></script>
-<script src="{{ URL::secureAsset('plugins/Lightbox/dist/js/lightbox.min.js') }}"></script>
-<script src="{{ URL::secureAsset('plugins/WOW/dist/wow.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ URL::asset('js/jquery.easing.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/countTo/jquery.countTo.js') }}"></script>
+<script src="{{ URL::asset('plugins/inview/jquery.inview.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/Lightbox/dist/js/lightbox.min.js') }}"></script>
+<script src="{{ URL::asset('plugins/WOW/dist/wow.min.js') }}"></script>
+<script>
+    @if ($errors->has('userEmail'))
+        $(function() {
+            $($('#modalId').data("target")).modal().delay( 2000 );
+        });
+     @endif
+
+</script>
 </body>
 
 </html>

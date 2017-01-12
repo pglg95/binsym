@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Validator;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
 
 class ForgotPasswordController extends Controller
 {
@@ -29,4 +31,19 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showLinkRequestForm()
+    {
+        return view('index');
+    }
+
+    public function checkEmailExisting(Request $request){
+        $validator=Validator::make($request->all(), ['userEmail' => 'required|email|email_existing']);
+       if($validator->fails()){
+           return redirect('/#login')
+               ->withErrors($validator)
+               ->withInput();
+       }
+    }
+
 }

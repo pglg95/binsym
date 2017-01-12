@@ -86,6 +86,8 @@ return [
     'unique'               => 'Taki :attribute już występuje.',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'Format :attribute jest nieprawidłowy.',
+    'email_existing'     =>  'Nie znaleziono użytkownika z takim adresem e-mail.',
+
 
     /*
     |--------------------------------------------------------------------------
