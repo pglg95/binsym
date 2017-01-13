@@ -42,6 +42,7 @@ class CurrenciesController extends Controller
     public function showById($id){
         $currency=Currency::findOrFail($id);
         $colors=$this->getRandomColorForCurrencyDiv(1);
+        $articles=(new ArticleController())->showNewestByCurrencyId($id);
         return view('buy',compact('currency','colors'));
     }
 }

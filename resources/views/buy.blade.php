@@ -1,4 +1,11 @@
 @extends('master')
+@section('css')
+    <style>
+        input {
+            visibility:hidden;
+        }
+    </style>
+@endsection
 @section('content')
             <div class="row-fluid">
                 <div class="statbox {{$colors[0]}} span12" ontablet="span12" ondesktop="span12">
@@ -60,12 +67,11 @@
                                                 </td>
                                                 <td>
                                                     <label style="float:left; display:inline">
-                                                        <input type="radio" name="speculation" value="up" />
-                                                        <img src="{{ URL::asset('img/up.png') }}">
+                                                        <input type="radio" name="speculation" value="up" class="radioImageSelect" data-image="{{ URL::asset('img/up.png') }}"  />
+                                                       <!-- <img src="{{ URL::asset('img/up.png') }}"> -->
                                                     </label>
                                                     <label style="float:left; display:inline">
-                                                        <input type="radio" name="speculation" value="down" />
-                                                        <img src="{{ URL::asset('img/down.png') }}">
+                                                        <input type="radio" name="speculation" value="down" class="radioImageSelect" data-image="{{ URL::asset('img/down.png') }}" />
                                                     </label>
                                                 </td>
                                             </tr>
@@ -114,11 +120,79 @@
                     </div>
                 </div><!--/span-->
             </div>
+            <div class="row-fluid">
+
+                <div class="box span12">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white th"></i><span class="break"></span>Najnowsze artykuły użytkowników</h2>
+                    </div>
+                    <div class="box-content">
+                        <div style="width:100%; margin: 0;position: relative;">
+
+                            <div>
+
+                                <div class="header">
+                                    <h1>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."</h1><br>
+                                    <div class="from"><i class="halflings-icon user"></i> <b>Dennis Ji</b> / jiguofei@msn.com</div><br>
+                                    <div class="date"><i class="halflings-icon time"></i> Today, <b>3:47 PM</b></div><br>
+
+                                    <div class="menu"></div>
+
+                                </div>
+
+                                <div class="content">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div>
+
+                                <div class="header">
+                                    <h1>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."</h1><br>
+                                    <div class="from"><i class="halflings-icon user"></i> <b>Dennis Ji</b> / jiguofei@msn.com</div><br>
+                                    <div class="date"><i class="halflings-icon time"></i> Today, <b>3:47 PM</b></div><br>
+
+                                    <div class="menu"></div>
+
+                                </div>
+
+                                <div class="content">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
+                            <button tabindex="3" type="submit" style="margin-bottom: 5px;" onclick="articleFormAction()" class="btn btn-success">Dodaj własny artukuł</button>
+
+                            <form class="replyForm showable" method="post" action="" hidden style="margin-top: 5px;">
+
+                                <fieldset>
+                                    <input type="text" class="input-xlarge span12" placeholder="Tytuł">
+                                    <textarea tabindex="3" class="input-xlarge span12" id="message" name="body" rows="12" placeholder="Treść"></textarea>
+
+                                    <div class="actions">
+
+                                        <input type="submit" value="Opublikuj" class="btn btn-large btn-primary" style="float:right;">
+
+                                    </div>
+
+                                </fieldset>
+
+                            </form>
+                        </div>
+                    </div>
+                </div><!--/span-->
+            </div>
 @endsection
 @section('dashboard_tab')
     <li>
 @endsection
 @section('js')
+            <script src="{{ URL::asset('js/jquery.radioImageSelect.js') }}"></script>
             <script type="text/javascript">
                 Date.prototype.addHours = function(h) {
                     this.setTime(this.getTime() + (h*60*60*1000));
@@ -156,5 +230,15 @@
                         $(".sliderMinLabel").val(ui.value);
                     }
                 });
+            </script>
+            <script>
+                function articleFormAction(){
+                    $('.showable').toggle('slow');
+                }
+            </script>
+            <script type="text/javascript">
+                jQuery(document).ready( function($) {
+                    $('input.radioImageSelect').radioImageSelect();
+                } );
             </script>
 @endsection
