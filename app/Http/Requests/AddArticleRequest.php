@@ -24,7 +24,7 @@ class AddArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required|text',
+            'text' => 'required',
             'title' => 'required|max:255'
         ];
     }

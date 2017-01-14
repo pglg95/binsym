@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Currency;
 use App\Http\Requests\AddArticleRequest;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class ArticleController extends Controller
         $article=new Article();
 
         $currencyId=$request->input('currency_id');
+        Currency::findOrFail($currencyId);
 
         $article->title=$request->input('title');
         $article->text=$request->input('text');

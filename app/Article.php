@@ -8,7 +8,8 @@ class Article extends Model
 {
     protected $fillable = [
         'title',
-        'text'
+        'text',
+        'currency_id'
     ];
 
     public function currency(){

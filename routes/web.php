@@ -29,6 +29,8 @@ Route::get('/install','AdminController@installCurrencies');
 
 Route::post('/boption/create','BinaryOptionController@createBinaryOption');
 
+Route::post('/articles/create','ArticleController@add');
+
 Auth::routes();
 
 Route::post('/password/email','Auth\ForgotPasswordController@checkEmailExisting');

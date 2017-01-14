@@ -24,6 +24,7 @@ class BinaryOptionController extends Controller
         $binaryOption->setAttribute("finish_date",$finishDate);
 
         $currencyId=$request->input('currency_id');
+        Currency::findOrFail($currencyId);
         $binaryOption->currency_id=$currencyId;
 
         $currentRate=Currency::where('id',$currencyId)->firstOrFail()->current_rate;
