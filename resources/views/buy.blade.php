@@ -19,11 +19,11 @@
                         <form role="form" method="POST" action="{{ url('/boption/create') }}">
                             {{ csrf_field() }}
                             <input type="hidden" name="currency_id" value="{{$currency->id}}">
-                            @if(count($errors) > 0)
+                            @if(count($errors) > 0 && !$errors->has('title') && !$errors->has('text'))
                                 <div class="alert-danger box-content">
                                     <ul>
                                         @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
+                                                <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -114,6 +114,7 @@
                     </div>
                 </div><!--/span-->
             </div>
+            <section id="art">
             <div class="row-fluid">
 
                 <div class="box span12">
@@ -146,8 +147,22 @@
                             @endif
                             @endforeach
                             <button tabindex="3" type="submit" style="margin-bottom: 5px;" onclick="articleFormAction()" class="btn btn-success">Dodaj własny artukuł</button>
-
-                            <form class="replyForm showable" method="post" action="{{url('/articles/create')}}" hidden style="margin-top: 5px;">
+                                @if(count($errors) > 0)
+                                    <div class="alert-danger box-content">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                @if($errors->has('title') || $errors->has('text'))
+                                                    <li>{{ $error }}</li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if(!$errors->has('title') && !$errors->has('text'))
+                                    <form class="replyForm showable" method="post" action="{{url('/articles/create')}}" hidden style="margin-top: 5px;">
+                                @else
+                                    <form class="replyForm showable" method="post" action="{{url('/articles/create')}}" style="margin-top: 5px;">
+                                 @endif
                                 {{ csrf_field() }}
                                 <input type="hidden" name="currency_id" value="{{$currency->id}}">
                                 <fieldset>
@@ -167,6 +182,7 @@
                     </div>
                 </div><!--/span-->
             </div>
+            </section>
 
 @endsection
 @section('dashboard_tab')

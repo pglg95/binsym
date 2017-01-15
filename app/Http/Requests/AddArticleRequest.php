@@ -28,4 +28,18 @@ class AddArticleRequest extends FormRequest
             'title' => 'required|max:255'
         ];
     }
+
+    public function response(array $errors)
+    {
+        if ($this->expectsJson()) {
+            return new JsonResponse($errors, 422);
+        }
+        $redUrl=$this->getRedirectUrl();
+        if(substr($redUrl,-1)=='/') $redUrl.='#art';
+        else $redUrl.='/#art';
+
+        return $this->redirector->to($redUrl)
+            ->withInput($this->except($this->dontFlash))
+            ->withErrors($errors,$this->errorBag);
+    }
 }

@@ -118,7 +118,8 @@ return [
     */
 
     'attributes'           => [
-        //
+        'title' => 'tytuł',
+        'text' => 'tekst'
     ],
 
 ];
