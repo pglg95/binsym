@@ -61,11 +61,11 @@
                                                 <td>
                                                     <label style="float:left; display:inline">
                                                         <input type="radio" name="speculation" value="up" />
-                                                        <img src="{{ URL::asset('img/up.png') }}">
+                                                        <img src="{{ URL::secureAsset('img/up.png') }}">
                                                     </label>
                                                     <label style="float:left; display:inline">
                                                         <input type="radio" name="speculation" value="down" />
-                                                        <img src="{{ URL::asset('img/down.png') }}">
+                                                        <img src="{{ URL::secureAsset('img/down.png') }}">
                                                     </label>
                                                 </td>
                                             </tr>
@@ -189,7 +189,7 @@
     <li>
 @endsection
 @section('js')
-            <script src="{{ URL::asset('js/jquery.radioImageSelect.js') }}"></script>
+            <script src="{{ URL::secureAsset('js/jquery.radioImageSelect.js') }}"></script>
             <script type="text/javascript">
                 Date.prototype.addHours = function(h) {
                     this.setTime(this.getTime() + (h*60*60*1000));
