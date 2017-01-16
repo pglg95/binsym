@@ -26,12 +26,19 @@ class ScheduleActionController extends Controller
         $currenciesRate=$this->getCurrenciesCurrentRates();
         $dbCurrencies=Currency::all('code');
         foreach ($dbCurrencies as $dbCurrency){
+            $updated=false;
             foreach ($currenciesRate as $currencyRate){
                 if(strcmp($currencyRate[0],$dbCurrency->code)==0){
                     Currency::where('code', $dbCurrency->code)
                         ->update(['current_rate' => $currencyRate[1]]);
+                    $updated=true;
                     break;
                 }
+            }
+            if(!$updated){
+                $currentDateTime=date('Y-m-d H:i:s');
+                Currency::where('code', $dbCurrency->code)
+                ->update(['updated_at' => $currentDateTime]);
             }
         }
 
@@ -62,6 +69,12 @@ class ScheduleActionController extends Controller
                 $user->money+=$newUserMoney+$activeOption->value;
                 $user->save();
 
+            }
+            else if($activeOption->start_rate == $currency->current_rate){
+                $user=User::findOrFail($activeOption->user_id);
+                $user->money+=$activeOption->value;
+                $activeOption->revenue=0;
+                $user->save();
             }
             $activeOption->save();
 
