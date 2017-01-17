@@ -203,7 +203,7 @@
 
                 if($(".form_datetime").length){
                     $(".form_datetime").datetimepicker({
-                        format: "d-m-yyyy H",
+                        format: "d-m-yyyy h",
                         maxView: 3,
                         minView: 1,
                         language: 'pl',
