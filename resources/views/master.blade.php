@@ -162,15 +162,6 @@
     </div>
 </div>
 
-<div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <ul class="list-inline item-details">
-            <li><a href="http://themifycloud.com">Admin templates</a></li>
-            <li><a href="http://themescloud.org">Bootstrap themes</a></li>
-        </ul>
-    </div>
-</div>
-
 <div class="clearfix"></div>
 
 <footer>
